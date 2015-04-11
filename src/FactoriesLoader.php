@@ -19,7 +19,7 @@ class FactoriesLoader
         $faker = new FakerAdapter;
 
         $factory = function ($name, $shortName, $attributes = [], $after = false) use ($designer, $faker) {
-            return $designer->define($name, $shortName, $attributes);
+            return $designer->define($name, $shortName, $attributes, $after = false);
         };
 
         foreach ((new FactoriesFinder($basePath))->find() as $file) {
