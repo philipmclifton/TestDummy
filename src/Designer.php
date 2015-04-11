@@ -23,7 +23,7 @@ class Designer
      * @param  array  $attributes
      * @return self
      */
-    public function define($name, $shortName = '', $attributes = [])
+    public function define($name, $shortName = '', $attributes = [], $after = false)
     {
         // The short name is optional. We'll do a quick check
         // to keep the API as simple as possible to use.
@@ -33,7 +33,7 @@ class Designer
             $shortName = '';
         }
 
-        $this->definitions[] = new Definition($name, $shortName, $attributes);
+        $this->definitions[] = new Definition($name, $shortName, $attributes, $after);
 
         return $this;
     }
