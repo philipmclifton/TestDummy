@@ -43,7 +43,7 @@ class Definition
         $this->name = $name;
         $this->shortName = $shortName;
         $this->attributes = $attributes;
-        $this->after = false;
+        $this->after = $after;
     }
 
 }

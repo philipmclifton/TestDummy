@@ -112,7 +112,14 @@ class Builder
     public function create($name, array $overrides = [])
     {
         for ($i = 0; $i < $this->getTimes(); $i++) {
-            $entities[] = $this->persist($name, $overrides);
+            $entities[] = $model = $this->persist($name, $overrides);
+
+            $fixture = $this->getFixture($name);
+
+            if($fixture->after instanceof Closure) {
+                $function = $fixture->after;
+                $function($model);
+            }
         }
 
         if (count($entities) > 1) {
