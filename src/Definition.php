@@ -25,6 +25,11 @@ class Definition
      * @var array
      */
     public $attributes;
+    
+    /**
+     * Stores the closer to run after
+     */
+    public $after;
 
     /**
      * Create a new Definition instance.
@@ -33,11 +38,12 @@ class Definition
      * @param string $shortName
      * @param array  $attributes
      */
-    public function __construct($name, $shortName, $attributes = [])
+    public function __construct($name, $shortName, $attributes = [], $after = false)
     {
         $this->name = $name;
         $this->shortName = $shortName;
         $this->attributes = $attributes;
+        $this->after = false;
     }
 
 }
